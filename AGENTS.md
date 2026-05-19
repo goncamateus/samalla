@@ -1,4 +1,4 @@
-# Agent Guide — samalla / goncllama
+# Agent Guide — samalla
 
 A concise reference for AI coding agents working on this codebase.
 
@@ -14,7 +14,7 @@ Three tabs: **Load** (pick model, configure server, launch) · **Chat** (SSE str
 ## Repository layout
 
 ```
-goncllama/
+samalla/
 ├── src/                          ← React frontend
 │   ├── App.tsx                   ← Tab shell, Load tab layout
 │   ├── contexts/AppContext.tsx   ← Global state (useReducer) + config auto-save
@@ -51,7 +51,7 @@ goncllama/
             ├── server.rs         ← launch_server, stop_server, get_server_status, get_server_log
             ├── models.rs         ← list_local_models (walks **.gguf, skips mmproj*), search_hf, download_hf_model
             ├── stats.rs          ← get_system_stats (sysinfo 0.33 + nvml-wrapper 0.10)
-            └── config.rs         ← load_config / save_config → ~/.config/goncllama/config.json
+            └── config.rs         ← load_config / save_config → ~/.config/samalla/config.json
 ```
 
 ---
@@ -60,7 +60,7 @@ goncllama/
 
 ```bash
 # Prerequisites: Rust toolchain, Node ≥ 18, webkit2gtk, llama-server in PATH
-cd goncllama
+cd samalla
 npm install
 npm run tauri dev        # hot-reload dev mode
 npm run tauri build      # production binary → src-tauri/target/release/
@@ -85,7 +85,7 @@ npm run tauri build      # production binary → src-tauri/target/release/
 
 ```ts
 interface AppState {
-  config: AppConfig;         // synced to ~/.config/goncllama/config.json (500 ms debounce)
+  config: AppConfig;         // synced to ~/.config/samalla/config.json (500 ms debounce)
   serverStatus: ServerStatus; // "stopped" | "loading" | "ready" | "reasoning" | "error"
   activeTab: "load" | "chat" | "stats";
   errorMsg: string | null;
@@ -109,7 +109,7 @@ interface AppState {
 | `get_hf_repo_files` | `(repo_id: String) → Result<Vec<String>>` | Lists `.gguf` siblings |
 | `download_hf_model` | `(repo, filename, dest, app) → Result<String>` | Streams bytes, emits `download-progress` events |
 | `get_system_stats` | `() → SystemStats` | sysinfo + nvml; all GPU fields `Option` |
-| `load_config` | `() → AppConfig` | Reads `~/.config/goncllama/config.json`, returns defaults on missing |
+| `load_config` | `() → AppConfig` | Reads `~/.config/samalla/config.json`, returns defaults on missing |
 | `save_config` | `(config: AppConfig) → Result<()>` | Writes same path |
 
 ---

@@ -26,7 +26,7 @@ function Shell() {
       {/* Header */}
       <header className="flex items-center justify-between px-4 py-2 border-b border-slate-700 shrink-0">
         <span className="font-bold text-indigo-400 tracking-wide text-sm">
-          goncllama
+          samalla
         </span>
         <nav className="flex gap-1">
           {TAB_LABELS.map(({ id, label }) => (

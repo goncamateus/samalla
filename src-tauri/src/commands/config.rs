@@ -7,7 +7,7 @@ use crate::types::AppConfig;
 fn config_path() -> std::path::PathBuf {
     dirs::config_dir()
         .unwrap_or_else(|| std::path::PathBuf::from("."))
-        .join("goncllama")
+        .join("samalla")
         .join("config.json")
 }
 

@@ -44,7 +44,7 @@ pub async fn search_hf(query: String) -> Result<Vec<HfModel>, String> {
     let client = reqwest::Client::new();
     let models: Vec<HfModel> = client
         .get(&url)
-        .header("User-Agent", "goncllama/0.1")
+        .header("User-Agent", "samalla/0.1")
         .send()
         .await
         .map_err(|e| e.to_string())?
@@ -60,7 +60,7 @@ pub async fn get_hf_repo_files(repo_id: String) -> Result<Vec<String>, String> {
     let client = reqwest::Client::new();
     let info: HfRepoInfo = client
         .get(&url)
-        .header("User-Agent", "goncllama/0.1")
+        .header("User-Agent", "samalla/0.1")
         .send()
         .await
         .map_err(|e| e.to_string())?
@@ -94,7 +94,7 @@ pub async fn download_hf_model(
     let client = reqwest::Client::new();
     let resp = client
         .get(&url)
-        .header("User-Agent", "goncllama/0.1")
+        .header("User-Agent", "samalla/0.1")
         .send()
         .await
         .map_err(|e| e.to_string())?;

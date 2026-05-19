@@ -1466,25 +1466,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "goncllama"
-version = "0.1.0"
-dependencies = [
- "dirs 5.0.1",
- "futures-util",
- "nvml-wrapper",
- "reqwest 0.12.28",
- "serde",
- "serde_json",
- "sysinfo",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-opener",
- "tokio",
- "urlencoding",
-]
-
-[[package]]
 name = "gtk"
 version = "0.18.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3225,6 +3206,25 @@ name = "ryu"
 version = "1.0.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9774ba4a74de5f7b1c1451ed6cd5285a32eddb5cccb8cc655a4e50009e06477f"
+
+[[package]]
+name = "samalla"
+version = "0.1.0"
+dependencies = [
+ "dirs 5.0.1",
+ "futures-util",
+ "nvml-wrapper",
+ "reqwest 0.12.28",
+ "serde",
+ "serde_json",
+ "sysinfo",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-opener",
+ "tokio",
+ "urlencoding",
+]
 
 [[package]]
 name = "same-file"

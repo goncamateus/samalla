@@ -15,7 +15,7 @@ Browse local models or download from HuggingFace, configure and launch the serve
 - **Rich status** — distinguishes *loading model*, *ready*, and *reasoning* via `/health` + `/slots` polling
 - **Streaming chat** — SSE-based `/v1/chat/completions`; assistant responses rendered as Markdown
 - **Live stats** — CPU, RAM, Swap, and NVIDIA GPU metrics updated every 2 seconds with rolling line charts
-- **Persistent config** — all settings saved to `~/.config/goncllama/config.json` automatically
+- **Persistent config** — all settings saved to `~/.config/samalla/config.json` automatically
 
 ---
 
@@ -61,7 +61,7 @@ npm install
 # Dev mode (hot reload)
 npm run tauri dev
 
-# Production build → src-tauri/target/release/goncllama
+# Production build → src-tauri/target/release/samalla
 npm run tauri build
 ```
 
@@ -88,7 +88,7 @@ npm run tauri build
 
 ## Configuration file
 
-`~/.config/goncllama/config.json` is written automatically. Delete it to reset all settings to defaults.
+`~/.config/samalla/config.json` is written automatically. Delete it to reset all settings to defaults.
 
 ```json
 {

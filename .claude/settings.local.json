@@ -22,7 +22,10 @@
       "Bash(DISPLAY=:0 /home/mateus/doc/goncllama/src-tauri/target/debug/goncllama)",
       "Bash(echo \"app pid: $!\")",
       "Bash(ffmpeg -f x11grab -i :0.0 -vframes 1 -update 1 /tmp/screen_full.png -y)",
-      "Bash(ffmpeg -f x11grab -i :0.0 -vframes 1 -update 1 /tmp/screen2.png -y)"
+      "Bash(ffmpeg -f x11grab -i :0.0 -vframes 1 -update 1 /tmp/screen2.png -y)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
