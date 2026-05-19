@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Ensure rustup/cargo are available in non-login shells
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
 echo "▶ running local CI before push…"
 make check
