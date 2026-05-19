@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            patchelf
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build and publish release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: samalla ${{ github.ref_name }}
+          releaseBody: |
+            ## What's included
+            - `.AppImage` — portable, no install needed; just `chmod +x` and run
+            - `.deb` — Debian/Ubuntu package
+
+            ## Requirements
+            - Linux (x86_64)
+            - [`llama-server`](https://github.com/ggml-org/llama.cpp) in `PATH` or configured path
+            - *(Optional)* NVIDIA GPU with drivers for GPU stats
+          releaseDraft: false
+          prerelease: false
