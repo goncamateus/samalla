@@ -25,9 +25,10 @@ function Shell() {
     <div className="flex flex-col h-screen bg-slate-900 text-slate-100">
       {/* Header */}
       <header className="flex items-center justify-between px-4 py-2 border-b border-slate-700 shrink-0">
-        <span className="font-bold text-indigo-400 tracking-wide text-sm">
-          samalla
-        </span>
+        <div className="flex items-center gap-2">
+          <img src="/icon.svg" alt="samalla" className="w-6 h-6 rounded" />
+          <span className="font-bold text-indigo-400 tracking-wide text-sm">samalla</span>
+        </div>
         <nav className="flex gap-1">
           {TAB_LABELS.map(({ id, label }) => (
             <button

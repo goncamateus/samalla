@@ -1,9 +1,18 @@
-# samalla
+<p align="center">
+  <img src="src-tauri/icons/icon.svg" width="140" alt="samalla logo" />
+</p>
 
-A lightweight Linux desktop GUI for [llama.cpp](https://github.com/ggml-org/llama.cpp)'s `llama-server`.
-Browse local models or download from HuggingFace, configure and launch the server, chat with streaming output, and watch live CPU/RAM/GPU stats — all in one window.
+<h1 align="center">samalla</h1>
 
-![Load tab](docs/screenshots/load.png)
+<p align="center">
+  A lightweight Linux desktop GUI for <a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a>'s <code>llama-server</code>.<br/>
+  Browse local models or download from HuggingFace, configure and launch the server,<br/>
+  chat with streaming output, and watch live CPU/RAM/GPU stats — all in one window.
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/load.png" alt="samalla load tab" width="860" />
+</p>
 
 ---
 
