@@ -40,8 +40,47 @@ export default function ChatSection() {
     }
   }
 
+  const { serverStatus, config } = state;
+
+  const statusColor: Record<typeof serverStatus, string> = {
+    stopped:   "bg-slate-500",
+    loading:   "bg-yellow-500 animate-pulse",
+    ready:     "bg-green-500",
+    reasoning: "bg-indigo-400 animate-pulse",
+    error:     "bg-red-500",
+  };
+
+  const statusLabel: Record<typeof serverStatus, string> = {
+    stopped:   "Server stopped",
+    loading:   "Loading model…",
+    ready:     "Server ready",
+    reasoning: "Reasoning…",
+    error:     "Server error",
+  };
+
+  const modelName = config.last_model
+    ? config.last_model.split("/").pop()!.replace(/\.gguf$/i, "")
+    : null;
+
   return (
     <div className="flex flex-col h-full">
+      {/* Status bar */}
+      <div className="flex items-center gap-2 px-4 py-1.5 border-b border-slate-700 bg-slate-800/50 text-xs text-slate-400 shrink-0">
+        <span className={`inline-block w-2 h-2 rounded-full shrink-0 ${statusColor[serverStatus]}`} />
+        <span className="text-slate-300">{statusLabel[serverStatus]}</span>
+        {modelName && (
+          <>
+            <span className="text-slate-600">·</span>
+            <span className="truncate max-w-xs">{modelName}</span>
+          </>
+        )}
+        {isRunning && (
+          <>
+            <span className="text-slate-600">·</span>
+            <span>port {config.server_port}</span>
+          </>
+        )}
+      </div>
       {error && (
         <div className="mx-4 mt-3 bg-red-900/30 border border-red-700 rounded px-3 py-2 text-xs text-red-300">
           {error}

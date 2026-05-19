@@ -25,7 +25,9 @@
       "Bash(ffmpeg -f x11grab -i :0.0 -vframes 1 -update 1 /tmp/screen2.png -y)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(cp /home/mateus/doc/goncllama/.githooks/pre-push /home/mateus/doc/goncllama/.git/hooks/pre-push)",
+      "Bash(git commit *)"
     ]
   }
 }
