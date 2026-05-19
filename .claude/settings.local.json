@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cargo --version)",
+      "Bash(npm --version)",
+      "Read(//home/mateus/.cargo/bin/**)",
+      "Bash(/home/mateus/.cargo/bin/cargo --version)",
+      "Bash(sed -i 's/^import React from \"react\";//g' App.tsx components/stats/CpuCard.tsx components/stats/MemCard.tsx components/stats/GpuCard.tsx components/load/ServerConfigForm.tsx)",
+      "Bash(sed -i 's/^import React, {/{/g' contexts/AppContext.tsx components/load/LaunchPanel.tsx components/load/ModelPicker.tsx components/chat/ChatSection.tsx components/stats/StatsPanel.tsx components/chat/ChatWindow.tsx components/load/HfSearch.tsx components/chat/ChatInput.tsx)",
+      "Bash(grep -v \"\\\\.d$\")",
+      "Bash(grep -v \"\\\\.d$\\\\|build\\\\|deps\\\\|incremental\\\\|examples\\\\|\\\\.fingerprint\")",
+      "Bash(xrandr)",
+      "Bash(pip3 show *)",
+      "Bash(python3 -c \"from PIL import Image\")",
+      "Bash(python3 -c \"import Xlib\")",
+      "Bash(python3 -c \"import subprocess; import time; print\\('subprocess ok'\\)\")",
+      "Bash(sudo apt-get install -y xdotool)",
+      "Bash(python3 -c \"import mss\")",
+      "Bash(python3 -c \"from PIL import ImageGrab; img = ImageGrab.grab\\(\\); print\\('grabbed', img.size\\)\")",
+      "Bash(ffmpeg -f x11grab -i :0.0 -vframes 1 /tmp/test_screen.png -y)",
+      "Bash(python3 *)",
+      "Bash(DISPLAY=:0 /home/mateus/doc/goncllama/src-tauri/target/debug/goncllama)",
+      "Bash(echo \"app pid: $!\")",
+      "Bash(ffmpeg -f x11grab -i :0.0 -vframes 1 -update 1 /tmp/screen_full.png -y)",
+      "Bash(ffmpeg -f x11grab -i :0.0 -vframes 1 -update 1 /tmp/screen2.png -y)"
+    ]
+  }
+}
