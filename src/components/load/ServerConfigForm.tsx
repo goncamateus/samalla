@@ -22,19 +22,33 @@ export default function ServerConfigForm() {
 
   return (
     <div className="space-y-4">
-      {/* Server port */}
-      <div>
-        <label className="block text-xs font-medium text-slate-400 mb-1">
-          Port
-        </label>
-        <input
-          type="number"
-          value={config.server_port}
-          onChange={(e) => patch({ server_port: Number(e.target.value) })}
-          className="w-24 bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-sm text-slate-100 focus:outline-none focus:border-indigo-500"
-          min={1024}
-          max={65535}
-        />
+      {/* Bind host + port */}
+      <div className="flex gap-4">
+        <div>
+          <label className="block text-xs font-medium text-slate-400 mb-1">
+            Bind address
+          </label>
+          <input
+            type="text"
+            value={config.bind_host}
+            onChange={(e) => patch({ bind_host: e.target.value })}
+            className="w-36 bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-sm text-slate-100 focus:outline-none focus:border-indigo-500"
+            placeholder="127.0.0.1"
+          />
+        </div>
+        <div>
+          <label className="block text-xs font-medium text-slate-400 mb-1">
+            Port
+          </label>
+          <input
+            type="number"
+            value={config.server_port}
+            onChange={(e) => patch({ server_port: Number(e.target.value) })}
+            className="w-24 bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-sm text-slate-100 focus:outline-none focus:border-indigo-500"
+            min={1024}
+            max={65535}
+          />
+        </div>
       </div>
 
       {/* Context size toggle */}

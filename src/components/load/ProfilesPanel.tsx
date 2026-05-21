@@ -35,6 +35,7 @@ export default function ProfilesPanel() {
       cache_type_v: config.cache_type_v,
       extra_args: config.extra_args,
       server_port: config.server_port,
+      bind_host: config.bind_host,
     };
 
     const updated = [

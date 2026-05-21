@@ -1,5 +1,9 @@
 use serde::{Deserialize, Serialize};
 
+fn default_bind_host() -> String {
+    "127.0.0.1".to_string()
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Profile {
     pub name: String,
@@ -11,6 +15,8 @@ pub struct Profile {
     pub cache_type_v: String,
     pub extra_args: String,
     pub server_port: u16,
+    #[serde(default = "default_bind_host")]
+    pub bind_host: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -25,6 +31,8 @@ pub struct AppConfig {
     pub cache_type_v: String,
     pub extra_args: String,
     pub server_port: u16,
+    #[serde(default = "default_bind_host")]
+    pub bind_host: String,
     #[serde(default)]
     pub profiles: Vec<Profile>,
 }
@@ -46,6 +54,7 @@ impl Default for AppConfig {
             cache_type_v: "q8_0".to_string(),
             extra_args: String::new(),
             server_port: 8080,
+            bind_host: default_bind_host(),
             profiles: Vec::new(),
         }
     }

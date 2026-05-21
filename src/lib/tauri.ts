@@ -11,6 +11,7 @@ export interface Profile {
   cache_type_v: string;
   extra_args: string;
   server_port: number;
+  bind_host: string;
 }
 
 export interface AppConfig {
@@ -24,6 +25,7 @@ export interface AppConfig {
   cache_type_v: string;
   extra_args: string;
   server_port: number;
+  bind_host: string;
   profiles: Profile[];
 }
 
@@ -63,6 +65,7 @@ export const DEFAULT_CONFIG: AppConfig = {
   cache_type_v: "q8_0",
   extra_args: "",
   server_port: 8080,
+  bind_host: "127.0.0.1",
   profiles: [],
 };
 

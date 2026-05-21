@@ -31,7 +31,7 @@ pub async fn launch_server(config: AppConfig, state: State<'_, AppState>) -> Res
     cmd.arg("--n-cpu-moe").arg(config.n_cpu_moe.to_string());
     cmd.arg("--cache-type-k").arg(&config.cache_type_k);
     cmd.arg("--cache-type-v").arg(&config.cache_type_v);
-    cmd.arg("--host").arg("127.0.0.1");
+    cmd.arg("--host").arg(&config.bind_host);
     cmd.arg("--port").arg(config.server_port.to_string());
 
     for arg in config.extra_args.split_whitespace() {
