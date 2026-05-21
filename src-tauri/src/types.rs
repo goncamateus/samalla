@@ -1,6 +1,19 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Profile {
+    pub name: String,
+    pub last_model: String,
+    pub context_size: u32,
+    pub n_gpu_layers: i32,
+    pub n_cpu_moe: i32,
+    pub cache_type_k: String,
+    pub cache_type_v: String,
+    pub extra_args: String,
+    pub server_port: u16,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct AppConfig {
     pub models_dir: String,
     pub llama_server_path: String,
@@ -12,6 +25,8 @@ pub struct AppConfig {
     pub cache_type_v: String,
     pub extra_args: String,
     pub server_port: u16,
+    #[serde(default)]
+    pub profiles: Vec<Profile>,
 }
 
 impl Default for AppConfig {
@@ -31,6 +46,7 @@ impl Default for AppConfig {
             cache_type_v: "q8_0".to_string(),
             extra_args: String::new(),
             server_port: 8080,
+            profiles: Vec::new(),
         }
     }
 }

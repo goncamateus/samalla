@@ -1,6 +1,18 @@
 import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 
+export interface Profile {
+  name: string;
+  last_model: string;
+  context_size: number;
+  n_gpu_layers: number;
+  n_cpu_moe: number;
+  cache_type_k: string;
+  cache_type_v: string;
+  extra_args: string;
+  server_port: number;
+}
+
 export interface AppConfig {
   models_dir: string;
   llama_server_path: string;
@@ -12,6 +24,7 @@ export interface AppConfig {
   cache_type_v: string;
   extra_args: string;
   server_port: number;
+  profiles: Profile[];
 }
 
 export interface SystemStats {
@@ -28,9 +41,9 @@ export interface SystemStats {
 }
 
 export interface HfModel {
-  model_id: string;
+  modelId: string;
   downloads: number | null;
-  last_modified: string | null;
+  lastModified: string | null;
 }
 
 export interface DownloadProgress {
@@ -50,6 +63,7 @@ export const DEFAULT_CONFIG: AppConfig = {
   cache_type_v: "q8_0",
   extra_args: "",
   server_port: 8080,
+  profiles: [],
 };
 
 export const loadConfig = () => invoke<AppConfig>("load_config");

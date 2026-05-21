@@ -81,8 +81,8 @@ export default function HfSearch() {
   }
 
   return (
-    <div className="space-y-3">
-      <div className="relative">
+    <div className="flex flex-col flex-1 overflow-hidden gap-3">
+      <div className="relative shrink-0">
         <Search className="absolute left-2.5 top-2.5 w-4 h-4 text-slate-500" />
         <input
           type="text"
@@ -102,14 +102,14 @@ export default function HfSearch() {
       )}
 
       {results.length > 0 && !selectedRepo && (
-        <ul className="max-h-48 overflow-y-auto space-y-1">
+        <ul className="flex-1 overflow-y-auto space-y-1">
           {results.map((m) => (
-            <li key={m.model_id}>
+            <li key={m.modelId}>
               <button
-                onClick={() => selectRepo(m.model_id)}
+                onClick={() => selectRepo(m.modelId)}
                 className="w-full text-left px-3 py-2 rounded bg-slate-800 hover:bg-slate-700 text-sm text-slate-200 border border-slate-700"
               >
-                <span className="font-medium">{m.model_id}</span>
+                <span className="font-medium">{m.modelId}</span>
                 {m.downloads != null && (
                   <span className="ml-2 text-xs text-slate-500">
                     ↓ {m.downloads.toLocaleString()}
@@ -122,7 +122,7 @@ export default function HfSearch() {
       )}
 
       {selectedRepo && (
-        <div>
+        <div className="flex flex-col flex-1 overflow-hidden">
           <div className="flex items-center gap-2 mb-2">
             <button
               onClick={() => { setSelectedRepo(null); setFiles([]); }}
@@ -135,7 +135,7 @@ export default function HfSearch() {
           {files.length === 0 && (
             <p className="text-slate-500 text-xs">Loading files…</p>
           )}
-          <ul className="space-y-1">
+          <ul className="flex-1 overflow-y-auto space-y-1">
             {files.map((f) => (
               <li key={f} className="flex items-center justify-between bg-slate-800 border border-slate-700 rounded px-3 py-2">
                 <span className="text-sm text-slate-200 truncate flex-1">{f}</span>

@@ -6,6 +6,7 @@ import { FolderOpen, Terminal } from "lucide-react";
 import ChatSection from "./components/chat/ChatSection";
 import LaunchPanel from "./components/load/LaunchPanel";
 import ModelPicker from "./components/load/ModelPicker";
+import ProfilesPanel from "./components/load/ProfilesPanel";
 import ServerConfigForm from "./components/load/ServerConfigForm";
 import StatsPanel from "./components/stats/StatsPanel";
 
@@ -99,9 +100,12 @@ function Shell() {
             </div>
           </div>
 
-          {/* Col 2 — Params + Launch */}
+          {/* Col 2 — Profiles + Params + Launch */}
           <div className="w-1/2 overflow-y-auto p-3 flex flex-col gap-4">
-            <ServerConfigForm />
+            <ProfilesPanel />
+            <div className="border-t border-slate-700 pt-3">
+              <ServerConfigForm />
+            </div>
             <div className="border-t border-slate-700 pt-3">
               <LaunchPanel />
             </div>

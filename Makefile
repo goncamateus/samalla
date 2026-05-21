@@ -3,7 +3,7 @@
 # ── Development ──────────────────────────────────────────────────────────────
 
 dev:
-	npm run tauri dev
+	env -u LD_LIBRARY_PATH npm run tauri dev
 
 build:
 	npm run tauri build
